@@ -1,0 +1,52 @@
+################### 微服务业务配置 ####################
+service:
+  httpAddr: 0.0.0.0:31002
+  httpqps: 100000  #支持运行时动态调整
+  IPLimitRequest: 5000
+  logfile: "./logs/iot-app-api-service.log"
+  loglevel: "debug"
+
+DeviceMQTT:
+  Ip: "127.0.0.1"
+  Port: 1884
+  Nationcode: "CN"
+  noAclProducts: []
+
+appmqtt:
+  addrs: ["ws://127.0.0.1:8883/mqtt"]
+
+redis:
+  Cluster: false
+  Addrs: ["127.0.0.1:6379"]
+  Username:
+  Password: "123456"
+  Database: 0
+  MinIdleConns: 5
+  IdleTimeout: 600
+  PoolSize: 50
+  MaxConnAge: 3600
+
+oss:
+  useOss: "s3"
+  s3:
+    Endpoint: "xxxxxxxxxxx.s3.cn-north-1.amazonaws.com.cn"
+    AccessKeyID: "xxxxxxxxxxxxxxx"
+    AccessKeySecret: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    BucketName: "xxxxxxxxxxxxxxxxx"
+    Region: "cn-north-1"
+
+################### 以下是微服务治理配置 ####################
+zipkin:
+  url: http://127.0.0.1:9411/api/v2/spans
+
+etcd:
+  address: ["127.0.0.1:2379"]
+  username: ""
+  password: ""
+
+NATS:
+  addrs: ["nats://token@127.0.0.1:4222"]
+
+ipService:
+  queryUrl: "https://ips.market.alicloudapi.com/iplocaltion?ip="
+  appCode: "APPCODE xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"

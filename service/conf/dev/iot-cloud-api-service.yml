@@ -1,0 +1,49 @@
+################### 微服务业务配置 ####################
+service:
+  httpAddr: 0.0.0.0:31001
+  httpqps: 10000  #支持运行时动态调整
+  IPLimitRequest: 5000
+  readTimeout: 3600
+  writeTimeout: 3600
+  logfile: "./logs/iot-cloud-api-service.log"
+  loglevel: "debug"
+  mcuSdkDir: "/opt/bat/temp/mcu_sdk"
+  mcuSdkScript: "/opt/bat/temp/mcu_sdk/pull_mcu_sdk_template.sh"
+  thirdDomain: "https://%s.testxxxxx.com"
+
+redis:
+  Cluster: false
+  Addrs: ["127.0.0.1:6379"]
+  Username:
+  Password: "123456"
+  Database: 0
+  MinIdleConns: 5
+  IdleTimeout: 600
+  PoolSize: 50
+  MaxConnAge: 3600
+
+oss:
+  useOss: "s3"
+  s3:
+    Endpoint: "xxxxxxxxxxx.s3.cn-north-1.amazonaws.com.cn"
+    AccessKeyID: "xxxxxxxxxxxxxxx"
+    AccessKeySecret: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    BucketName: "xxxxxxxxxxxxxxxxx"
+    Region: "cn-north-1"
+
+webmqtt:
+  addr: "ws://127.0.0.1:8883/mqtt"
+
+defaultapp:
+  appName: "APP名称（默认/公版）"
+  tenantId: "租户Id"
+  appKey: "your app key"
+
+################### 以下是微服务治理配置 ####################
+zipkin:
+  url: http://127.0.0.1:9411/api/v2/spans
+
+etcd:
+  address: ["127.0.0.1:2379"]
+  username: ""
+  password: ""

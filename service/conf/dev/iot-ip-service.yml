@@ -1,0 +1,31 @@
+################### 微服务业务配置 ####################
+service:
+  #grpcAddr: 127.0.0.1:8088  #单机开多个实例请不要指定端口
+  grpcqps: 10000
+  logfile: "./logs/iot-ip-service.log"
+  loglevel: "debug"
+
+geo:
+  dbpath: "./conf/GeoLite2-City.mmdb"
+  licensekey: "xxxxxxxxxxxxxxxxx"
+  interval: 1800  #间隔秒数
+
+redis:
+  Cluster: false
+  Addrs: ["127.0.0.1:6379"]
+  Username:
+  Password: "123456"
+  Database: 0
+  MinIdleConns: 5
+  IdleTimeout: 600
+  PoolSize: 50
+  MaxConnAge: 3600
+
+################### 以下是微服务治理配置 ####################
+zipkin:
+  url: http://127.0.0.1:9411/api/v2/spans
+
+etcd:
+  address: ["127.0.0.1:2379"]
+  username: ""
+  password: ""

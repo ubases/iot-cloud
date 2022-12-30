@@ -1,0 +1,40 @@
+################### 微服务业务配置 ####################
+service:
+  #grpcAddr: 127.0.0.1:8088  #单机开多个实例请不要指定端口
+  grpcqps: 10000
+  httpqps: 1000  #支持运行时动态调整
+  logfile: "./logs/iot-app-message-service.log"
+  loglevel: "debug"
+
+database:
+  database: iot_message
+  driver: mysql
+  connstr: root:123456@tcp(127.0.0.1:3306)/iot_message?charset=utf8mb4&parseTime=True&loc=Local
+
+redis:
+  Cluster: false
+  Addrs: ["127.0.0.1:6379"]
+  Username:
+  Password: "123456"
+  Database: 0
+  MinIdleConns: 5
+  IdleTimeout: 600
+  PoolSize: 50
+  MaxConnAge: 3600
+
+NATS:
+  addrs: ["nats://token@127.0.0.1:4222"]
+
+jpush:
+  appKey: ""
+  secret: ""
+  apnsProduction: true
+
+################### 以下是微服务治理配置 ####################
+zipkin:
+  url: http://127.0.0.1:9411/api/v2/spans
+
+etcd:
+  address: ["127.0.0.1:2379"]
+  username: ""
+  password: ""

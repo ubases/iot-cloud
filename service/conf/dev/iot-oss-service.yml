@@ -1,0 +1,49 @@
+service:
+  #grpcAddr: 127.0.0.1:8088  #单机开多个实例请不要指定端口
+  grpcqps: 10000
+  httpAddr: 0.0.0.0:18080
+  httpqps: 1000  #支持运行时动态调整
+  logfile: "./logs/iot-oss-service.log"
+  loglevel: "debug"
+
+weather:
+  provider: openweathermap
+  apikey: "xxxxxxxxxxxxxxxxx"
+  qps: 60
+  interval: 1800  #间隔秒数
+
+
+oss:
+  useOss: "qiniu"
+  providers:
+    - provider: "qiniu"
+      region: ""
+      endpoint: ""
+      accessKeyID: ""
+      accessKeySecret: ""
+      bucketName: ""
+    - provider: "aliyun"
+      region:
+      endpoint:
+      accessKeyID:
+      accessKeySecret:
+      bucketName:
+
+redis:
+  Cluster: false
+  Addrs: ["127.0.0.1:6379"]
+  Username:
+  Password: "123456"
+  Database: 0
+  MinIdleConns: 5
+  IdleTimeout: 600
+  PoolSize: 50
+  MaxConnAge: 3600
+
+zipkin:
+  url: http://127.0.0.1:9411/api/v2/spans
+
+etcd:
+  address: ["127.0.0.1:2379"]
+  username: ""
+  password: ""

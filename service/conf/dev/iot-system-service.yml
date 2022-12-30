@@ -1,0 +1,29 @@
+service:
+#  grpcAddr: 127.0.0.1:8088  #单机开多个实例请不要指定端口
+  grpcqps: 10000
+  logfile: "./logs/iot-system-service.log"
+  loglevel: "debug"
+
+database:
+  database: iot_system
+  driver: mysql
+  connstr: root:123456@tcp(127.0.0.1:3306)/iot_system?charset=utf8mb4&parseTime=True&loc=Local
+
+redis:
+  Cluster: false
+  Addrs: ["127.0.0.1:6379"]
+  Username:
+  Password: "123456"
+  Database: 0
+  MinIdleConns: 5
+  IdleTimeout: 600
+  PoolSize: 50
+  MaxConnAge: 3600
+
+zipkin:
+  url: http://127.0.0.1:9411/api/v2/spans
+
+etcd:
+  address: ["127.0.0.1:2379"]
+  username: ""
+  password: ""

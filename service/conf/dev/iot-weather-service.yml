@@ -1,0 +1,41 @@
+################### 微服务业务配置 ####################
+service:
+  grpcqps: 10000
+  logfile: "./logs/iot-weather-service.log"
+  loglevel: "debug"
+
+weather:
+  provider: openweathermap
+  apikey: 
+  aqicnToken: 
+  qps: 60
+  interval: 1800  #间隔秒数
+
+#易客云
+yiketianqi:
+  enabled: true
+  appid: 0
+  appsecret: 
+
+redis:
+  Cluster: false
+  Addrs: ["127.0.0.1:6379"]
+  Username:
+  Password: "123456"
+  Database: 0
+  MinIdleConns: 5
+  IdleTimeout: 600
+  PoolSize: 50
+  MaxConnAge: 3600
+
+NATS:
+  addrs: ["nats://token@127.0.0.1:4222"]
+
+################### 以下是微服务治理配置 ####################
+zipkin:
+  url: http://127.0.0.1:9411/api/v2/spans
+
+etcd:
+  address: ["127.0.0.1:2379"]
+  username: ""
+  password: ""

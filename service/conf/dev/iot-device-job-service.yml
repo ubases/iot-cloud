@@ -1,0 +1,15 @@
+service:
+  #grpcAddr: 127.0.0.1:8088  #单机开多个实例请不要指定端口
+  grpcqps: 10000
+  #httpAddr: 0.0.0.0:6666
+  httpqps: 1000  #支持运行时动态调整
+  logfile: "./logs/iot-device-job-service.log"
+  loglevel: "debug"
+
+NATS:
+  addrs: ["nats://token@127.0.0.1:4222"]
+
+etcd:
+  address: ["127.0.0.1:2379"]
+  username: ""
+  password: ""

@@ -1,0 +1,42 @@
+service:
+  concurrent: 1000
+  logfile: "./logs/iot-mqtt-data-service.log"
+  loglevel: "debug"
+
+database:
+  database: iot_device
+  driver: mysql
+  connstr: root:123456@tcp(127.0.0.1:3306)/iot_device?charset=utf8mb4&parseTime=True&loc=Local
+
+redis:
+  Cluster: false
+  Addrs: ["127.0.0.1:6379"]
+  Username:
+  Password: "123456"
+  Database: 0
+  MinIdleConns: 5
+  IdleTimeout: 600
+  PoolSize: 50
+  MaxConnAge: 3600
+
+MQTT:
+  addrs: ["tcp://127.0.0.1:1885"]  #如果是集群部署，请配置一个地址
+  clientid: "svr_iot-mqtt-data-service.test"
+  user: "testmqttuser"
+  password: "e7ce3d5adbb077d686cd13fe4c1a12b5"
+  offline: false   #指定掉线时要不要发遗嘱消息
+  CacheControl:
+    Register: 600 #单位：秒
+    Publish: 600 #单位：秒
+    Subscribe: 600 #单位：秒
+
+NATS:
+  addrs: ["nats://token@127.0.0.1:4222"]
+
+zipkin:
+  url: "http://127.0.0.1:9411/api/v2/spans"
+
+etcd:
+  address: ["127.0.0.1:2379"]
+  username: ""
+  password: ""
